@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs') %>
+
+  <body>
+
+    <%- include('../partials/nav.ejs') %>
+      <!-- // - sign doesnot escape special charecter whereas = sign escape -->
+      <div class="blogs content">
+        <h2>All Blogs</h2>
+        <!-- all of our blogs will be place here -->
+        <% if (blogs.length> 0) { %>
+
+          <% blogs.forEach(blog=> { %>
+            <a href="/blogs/<%= blog._id  %>">
+              <h3 clss="title">
+                <%= blog.title %>
+              </h3>
+              <p class="snippet">
+                <%= blog.snippet %>
+              </p>
+            </a>
+
+            <br>
+            <% }) %>
+
+              <% } else { %>
+                <h3>Bologs Not available</h3>
+                <% } %>
+
+      </div>
+
+      <%- include('../partials/footer.ejs') %>
+  </body>
+
+</html>
